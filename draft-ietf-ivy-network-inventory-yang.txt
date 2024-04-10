@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 5 October 2024                                            Nokia
+Expires: 12 October 2024                                           Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                      TIM
                                                                P. Bedard
                                                                    Cisco
-                                                            3 April 2024
+                                                           10 April 2024
 
 
                 A YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 October 2024.
+   This Internet-Draft will expire on 12 October 2024.
 
 Copyright Notice
 
@@ -604,18 +604,19 @@ Table of Contents
       +--rw network-inventory
          +--rw network-elements
             +--rw network-element* [ne-id]
-               +--rw ne-id            string
-               +--ro ne-type?         identityref
-               +--ro uuid?            yang:uuid
-               +--rw name?            string
-               +--rw description?     string
-               +--rw alias?           string
-               +--ro hardware-rev?    string
-               +--ro software-rev?    string
-               +--ro mfg-name?        string
-               +--ro mfg-date?        yang:date-and-time
-               +--ro serial-number?   string
-               +--ro product-name?    string
+               +--rw ne-id                 string
+               +--ro ne-type?              identityref
+               +--ro uuid?                 yang:uuid
+               +--rw name?                 string
+               +--rw description?          string
+               +--rw alias?                string
+               +--ro hardware-rev?         string
+               +--ro software-rev?         string
+               +--ro software-patch-rev*   string
+               +--ro mfg-name?             string
+               +--ro mfg-date?             yang:date-and-time
+               +--ro serial-number?        string
+               +--ro product-name?         string
                +--rw components
                   +--rw component* [component-id]
                      +--rw component-id              string
@@ -630,6 +631,7 @@ Table of Contents
                      +--ro hardware-rev?             string
                      +--ro firmware-rev?             string
                      +--ro software-rev?             string
+                     +--ro software-patch-rev*       string
                      +--ro serial-num?               string
                      +--ro mfg-name?                 string
                      +--ro part-number?              string
@@ -724,7 +726,7 @@ Table of Contents
      // RFC Ed.: update the date below with the date of RFC publication
      // and remove this note.
 
-     revision 2024-04-01 {
+     revision 2024-04-09 {
        description
          "Initial version";
        reference
@@ -798,6 +800,13 @@ Table of Contents
          type string;
          description
            "The vendor-specific software revision string for the NE.";
+       }
+       leaf-list software-patch-rev {
+         config false;
+         type string;
+         description
+           "The vendor-specific patch software revision string for the
+           NE.";
        }
        leaf mfg-name {
          config false;
@@ -1024,6 +1033,13 @@ Table of Contents
                  reference
                    "RFC 6933: Entity MIB (Version 4) -
                              entPhysicalSoftwareRev";
+               }
+               leaf-list software-patch-rev {
+                 config false;
+                 type string;
+                 description
+                   "The vendor-specific patch software revision string
+                   for the component.";
                }
                leaf serial-num {
                  config false;
