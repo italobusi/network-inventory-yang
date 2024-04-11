@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-09T00:38:48.935228+00:00",
+  "timestamp": "2024-04-11T00:39:05.890914+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -260,7 +260,7 @@
       "id": "I_kwDOKiDYo850n_Om",
       "title": "Software patch",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -272,8 +272,8 @@
       ],
       "body": "Whether the software patch is in the base inventory model is to be discussed.",
       "createdAt": "2023-10-23T08:34:57Z",
-      "updatedAt": "2024-03-07T00:15:36Z",
-      "closedAt": null,
+      "updatedAt": "2024-04-10T15:55:51Z",
+      "closedAt": "2024-04-10T15:55:50Z",
       "comments": [
         {
           "author": "YuChaode",
@@ -440,9 +440,9 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Check how it is possible to manage MPO ports\r\n\r\nSee: https://github.com/italobusi/ietf-network-inventory/issues/32#issuecomment-1041621665\r\n",
+      "body": "Check how it is possible to manage MPO ports\r\n\r\nSee: https://github.com/ietf-ccamp-wg/ietf-network-inventory/issues/32#issuecomment-1041621665\r\n",
       "createdAt": "2022-02-16T15:25:22Z",
-      "updatedAt": "2023-12-05T13:19:14Z",
+      "updatedAt": "2024-04-10T18:38:54Z",
       "closedAt": null,
       "comments": [
         {
@@ -451,6 +451,13 @@
           "body": "**[2022-02-16 Network Inventory weekly call\r\n](https://github.com/italobusi/ietf-network-inventory/blob/main/minutes/minutes-2022-02-16.md)**\r\n\r\nJeff: The ports refer to the TX/RX port on the transceiver. And for the MPO/break out cable, i am also agree to have a list of destination to describe the multiple breakout ports. And for those ports which there is no transceiver plugged-in, the port still need to be provided in inventory.  We also agree that there could be multiple network elements on a rack. For the site's definition, i am not quite sure, but i also agree that site and equipment room can be both optional.\r\n\r\nChenfang: I have some other understanding for MPO port. Can be discussed in next week's meeting.\r\n\r\nIt is all aligned that we will not do update on the inventory draft's texting for the upcoming IETF 113 meeting, because of the discussion of generic model and CU proposed model is not finished.\r\n",
           "createdAt": "2022-02-22T20:24:07Z",
           "updatedAt": "2022-02-22T20:24:07Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Some background material about MPO ports:\r\n\r\nhttps://www.sanspot.com/5m-mpo-lc-om3-12-core-mpo-fiber-pmlc-fm312nxp05\r\n\r\nhttps://community.fs.com/article/mtp-mpo-cables-what-are-they-and-how-to-use-them.html\r\n\r\nhttps://community.fs.com/article/mtp-mpo-cables-what-are-they-and-how-to-use-them.html\r\n\r\nThe latter reference describes two types of MPO cables:\r\n- MPO Trunk Cables\r\n- MPO Breakout Cables\r\n\r\nIt might be worthwhile analyzing whether the modelling of MPO trunk and breakout cables should be the same or different\r\n\r\nOther examples of multi-lane Ethernet interfaces (with MPO or CWDM multiplexing):\r\n\r\nhttps://www.servethehome.com/differences-behind-100gbase-sr4-and-100gbase-lr4-optics/\r\n",
+          "createdAt": "2024-04-10T18:36:10Z",
+          "updatedAt": "2024-04-10T18:38:54Z"
         }
       ]
     },
@@ -527,7 +534,7 @@
       "id": "I_kwDOKiDYo854xRbI",
       "title": "Part number",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/15",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "vlopezalvarez",
       "authorAssociation": "NONE",
       "assignees": [
@@ -540,8 +547,8 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-03-22T06:18:14Z",
-      "closedAt": null,
+      "updatedAt": "2024-04-10T15:53:34Z",
+      "closedAt": "2024-04-10T15:53:33Z",
       "comments": [
         {
           "author": "YuChaode",
@@ -626,6 +633,13 @@
           "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThe YANG descriptions in the I-D version uploaded for IETF 119 are not fully aligned with the descriptions agreed during the call on February 21, 2024\r\n\r\n- [ ] @YuChaode update the definitions in the YANG model to align with the definitions in [2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)",
           "createdAt": "2024-03-07T00:13:16Z",
           "updatedAt": "2024-03-07T00:13:16Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed with 683ea0729a10a841b3fa7de3ec57eb8f33920e0c",
+          "createdAt": "2024-04-10T15:53:33Z",
+          "updatedAt": "2024-04-10T15:53:33Z"
         }
       ]
     },
@@ -767,9 +781,17 @@
       "labels": [],
       "body": "Currently, the model does not support port breakouts. Today it is a very common functionality that should be modeled.",
       "createdAt": "2023-03-15T14:44:05Z",
-      "updatedAt": "2023-12-05T13:21:58Z",
+      "updatedAt": "2024-04-10T18:34:16Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@oscargdd : can we close this issue as duplicated with #12?",
+          "createdAt": "2024-04-10T18:34:15Z",
+          "updatedAt": "2024-04-10T18:34:15Z"
+        }
+      ]
     },
     {
       "number": 20,
@@ -1128,7 +1150,7 @@
       "id": "I_kwDOKiDYo859MLjn",
       "title": "Refine NE assembly-id attribute",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1140,8 +1162,8 @@
       ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-03-22T06:15:45Z",
-      "closedAt": null,
+      "updatedAt": "2024-04-10T15:53:10Z",
+      "closedAt": "2024-04-10T15:53:10Z",
       "comments": [
         {
           "author": "YuChaode",
@@ -1202,9 +1224,16 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThe YANG descriptions in the I-D version uploaded for IETF 119 are not fully aligned with the descriptions agreed during the call on February 21, 2024\r\n\r\n- [ ] @YuChaode update the definitions in the YANG model to align with the definitions in [2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThe YANG descriptions in the I-D version uploaded for IETF 119 are not fully aligned with the descriptions agreed during the call on February 21, 2024\r\n\r\n- [x] @YuChaode update the definitions in the YANG model to align with the definitions in [2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)",
           "createdAt": "2024-03-07T00:13:22Z",
-          "updatedAt": "2024-03-07T00:13:22Z"
+          "updatedAt": "2024-04-10T15:52:52Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed with 683ea0729a10a841b3fa7de3ec57eb8f33920e0c",
+          "createdAt": "2024-04-10T15:53:10Z",
+          "updatedAt": "2024-04-10T15:53:10Z"
         }
       ]
     },
@@ -1871,6 +1900,61 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDOKiDYo85sFG8-",
+      "title": "add software-patch-rev for NE and component and NE",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/43",
+      "state": "MERGED",
+      "author": "YuChaode",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-04-09T02:18:03Z",
+      "updatedAt": "2024-04-10T15:55:50Z",
+      "baseRepository": "ietf-ivy-wg/network-inventory-yang",
+      "baseRefName": "main",
+      "baseRefOid": "47b21e9d1fb1c6a0b4508221dfcdd859c6b2bf89",
+      "headRepository": "YuChaode/network-inventory-yang",
+      "headRefName": "main",
+      "headRefOid": "d3d6254bb5e0dd7b9eaad6614699410c27430341",
+      "closedAt": "2024-04-10T15:55:50Z",
+      "mergedAt": "2024-04-10T15:55:50Z",
+      "mergedBy": "italobusi",
+      "mergeCommit": {
+        "oid": "06a274ee7cdfeb2c18019ee7b5a3b72c9f47f99d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKiDYo852uNHE",
+          "commit": {
+            "abbreviatedOid": "d3d6254"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-04-10T14:12:54Z",
+          "updatedAt": "2024-04-10T14:12:54Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKiDYo852vTLN",
+          "commit": {
+            "abbreviatedOid": "d3d6254"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-04-10T15:55:18Z",
+          "updatedAt": "2024-04-10T15:55:18Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
