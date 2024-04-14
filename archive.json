@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-11T00:39:05.890914+00:00",
+  "timestamp": "2024-04-14T00:45:27.637744+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1426,6 +1426,22 @@
       "body": "The location attribute defined in [draft-ietf-ccamp-network-inventory-yang-02](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-network-inventory-yang-02) is missing from the base model:\r\n\r\n```\r\n        leaf location {\r\n          type string;\r\n          description\r\n            \"A relative location information of this component.\r\n            In optical transport network, the location string is\r\n            using the following pattern:\r\n              '/ne=<nw-ne-name>[/r=<r_index>][/sh=<sh_index>\r\n              [/s_sh=<s_sh_index> ...]][[/sl=<sl_index>\r\n              [/s_sl=<s_sl_index> ...]][/p=<p_index> \u2026]]'\r\n            \";\r\n        }\r\n\r\n```\r\n\r\nAs indicated in Appendix A.1 of [draft-ietf-ccamp-network-inventory-yang-02](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-network-inventory-yang-02), a similar attribute exists also in OpenConfig:\r\n\r\nhttps://github.com/openconfig/public/blob/master/release/models/platform/openconfig-platform.yang\r\n\r\nIt is proposed to add this attribute also to the base network inventory model with a more generic description:\r\n\r\n```\r\n    leaf location {\r\n      type string;\r\n      description\r\n        \"A system-defined description of the location of the\r\n        component within the system.\";\r\n    }\r\n\r\n```\r\n",
       "createdAt": "2024-03-22T04:10:51Z",
       "updatedAt": "2024-03-22T04:12:07Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 44,
+      "id": "I_kwDOKiDYo86FWRGZ",
+      "title": "Does it make sense to have an operating system name (or software name) at device level?",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/44",
+      "state": "OPEN",
+      "author": "oscargdd",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "At device level we have the model name and the software rev. The software rev I believe is the version number (e.g. for Cisco IOS would be 7.11.2 , 7.8.2, etc, for Nokia 23.10, 24.4, etc....). The O.S. name itself could be (or not) included in the software rev.... So... would it be  more clear \"decoupling\" the software name and the software version/revision? This would requiring adding a field for the operating system name or software name. Another possibility, instead of just one leaf, would be to have a specific operating system container hanging from device... Thoughts?",
+      "createdAt": "2024-04-11T08:38:17Z",
+      "updatedAt": "2024-04-11T08:38:17Z",
       "closedAt": null,
       "comments": []
     }
