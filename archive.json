@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-23T00:39:29.348403+00:00",
+  "timestamp": "2024-04-25T00:41:43.677717+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1130,10 +1130,13 @@
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "enhancement",
+        "needs discussion"
+      ],
       "body": "",
       "createdAt": "2024-01-09T19:11:02Z",
-      "updatedAt": "2024-01-09T19:17:52Z",
+      "updatedAt": "2024-04-24T22:44:34Z",
       "closedAt": null,
       "comments": [
         {
@@ -1142,6 +1145,13 @@
           "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nChaode presented initial thoughts to model fibers and cables within the network inventory\r\n\r\nThere is a need to improve the terminology since cable can include multiple fibers: in ONF TAPI, the term 'strand' has been used\r\n\r\nThere is also an unbounded level of complexity when modelling fibers/cables: it has been suggested to take a look at the TAPI model for that\r\n\r\nThere is no need to report the MW connectivity since this information is already reported in the MW topology model\r\n\r\nThere was some discussion about whether this information belongs to the base network inventory model or to a network inventory augmentation model\r\n\r\nThis information is not under the control of the network controller and part of another inventory which can be imported by the network controller and exported in the network inventory model. Therefore it is fine to define this as an optional element for the network inventory.\r\n\r\nIt has also been proposed to define a new network-inventory top-level container to contain both the list of network elements as well as the list of fibers/cables:\r\n\r\n```\r\n+--rw network-inventory\r\n   +--rw network-elements\r\n   +--rw fibers/cables\r\n```\r\n\r\nThe following assumptions need to be confirmed during the next call:\r\n- define fibers/cables in a network-inventory augmentation model\r\n- define a new network-inventory top-level container on top of the network-elements container\r\n\r\nIt has been agreed that the fibers/cables inventory is not limited to include only fibers/cables between NEs but it may also include, as an implementation decision, option, fibers/cables within different components of the same NE",
           "createdAt": "2024-01-09T19:17:51Z",
           "updatedAt": "2024-01-09T19:17:51Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-04-24 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-04-24.md)**\r\n\r\n\r\nThe 'physical span' is the end-to-end collection of strands between the access ports\r\n\r\nThe 'physical span' can be unidirectional or bidirectional ...\r\n\r\nMultiple 'physical spans' can be contained within a single cable or go through multiple cables\r\n\r\nThe 'physical span' can be modelled as a link in the 'physical network' topology proposed in [draft-wzwb-ivy-network-inventory-topology](https://datatracker.ietf.org/doc/html/draft-wzwb-ivy-network-inventory-topology)\r\n\r\nIt was pointed out that the term 'physical network' is not fully correct since the topology is reporting an abstract view of the physical network: the term 'abstract physical network' has been proposed as an alternative\r\n\r\nThe 'abstract physical link' can support an OTS link in the WDM topology or an ETH link in the ETH topology\r\n\r\nThe key question is whether there is a need to model the cables in the inventory model\r\n\r\nFurther discussion is also required about the need to report within the inventory of the fibers/cables within a network element",
+          "createdAt": "2024-04-24T22:44:24Z",
+          "updatedAt": "2024-04-24T22:44:24Z"
         }
       ]
     },
