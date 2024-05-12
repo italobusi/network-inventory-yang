@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-09T00:40:11.920611+00:00",
+  "timestamp": "2024-05-12T00:43:54.549663+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1454,6 +1454,30 @@
       "updatedAt": "2024-04-11T08:38:17Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 45,
+      "id": "I_kwDOKiDYo86IUU-0",
+      "title": "Modeling of Port and Transceiver",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/45",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This issue was raised when we were considering how to introduce transceiver into the base model.\r\nWe found the understandings of port  were not aligned, so we collected four scenarios of port & transceiver installation and run this discussion with several proposals.\r\nThe slide we discussed on the weekly call of 8th May, 2024 is attached below:\r\n[Discussion of Port Modeling-20240508.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15258754/Discussion.of.Port.Modeling-20240508.pptx)  ",
+      "createdAt": "2024-05-09T06:57:12Z",
+      "updatedAt": "2024-05-09T07:03:00Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The main disagreement is whether to model hole/cage. \r\nEspecially for the third scenario, which is no transceiver inserted in the hole, people had some disagreement on whether to model it as a port or a cage.",
+          "createdAt": "2024-05-09T07:01:25Z",
+          "updatedAt": "2024-05-09T07:03:00Z"
+        }
+      ]
     }
   ],
   "pulls": [
