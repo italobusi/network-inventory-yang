@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 26 October 2024                                           Nokia
+Expires: 16 November 2024                                          Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                      TIM
                                                                P. Bedard
                                                                    Cisco
-                                                           24 April 2024
+                                                             15 May 2024
 
 
                 A YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 October 2024.
+   This Internet-Draft will expire on 16 November 2024.
 
 Copyright Notice
 
@@ -1236,9 +1236,9 @@ Table of Contents
               Wu, B., Zhou, C., Wu, Q., and M. Boucadair, "A YANG
               Network Data Model of Network Inventory Software
               Extensions", Work in Progress, Internet-Draft, draft-wzwb-
-              ivy-network-inventory-software-00, 18 October 2023,
+              ivy-network-inventory-software-01, 30 April 2024,
               <https://datatracker.ietf.org/doc/html/draft-wzwb-ivy-
-              network-inventory-software-00>.
+              network-inventory-software-01>.
 
    [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
               Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
