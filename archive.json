@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-14T00:40:22.905187+00:00",
+  "timestamp": "2024-05-16T00:40:19.568411+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1467,7 +1467,7 @@
       "labels": [],
       "body": "This issue was raised when we were considering how to introduce transceiver into the base model.\r\nWe found the understandings of port  were not aligned, so we collected four scenarios of port & transceiver installation and run this discussion with several proposals.\r\nThe slide we discussed on the weekly call of 8th May, 2024 is attached below:\r\n[Discussion of Port Modeling-20240508.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15258754/Discussion.of.Port.Modeling-20240508.pptx)  ",
       "createdAt": "2024-05-09T06:57:12Z",
-      "updatedAt": "2024-05-09T07:03:00Z",
+      "updatedAt": "2024-05-15T16:12:06Z",
       "closedAt": null,
       "comments": [
         {
@@ -1476,6 +1476,34 @@
           "body": "The main disagreement is whether to model hole/cage. \r\nEspecially for the third scenario, which is no transceiver inserted in the hole, people had some disagreement on whether to model it as a port or a cage.",
           "createdAt": "2024-05-09T07:01:25Z",
           "updatedAt": "2024-05-09T07:03:00Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-05-08 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-05-08.md)**\r\n\r\nSlide from Chaode reviewed: [Discussion.of.Port.Modeling-20240508.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15258754/Discussion.of.Port.Modeling-20240508.pptx)\r\n\r\nA better term for the 'transceiver' component should be investigated since some SFPs contain more than one transceivers and the term 'transceiver' is already used in the optical impairments topology to represent the functional aspects.\r\n\r\nIn case of a non-pluggable port, reporting the 'transceiver' component is an implementation option: it could be useful if there is a need to report specific information (e.g., part-number or serial-number) of a non-pluggable component integrated into the board. Otherwise, the port component can be reported directly under the module component representing the board. \r\n\r\nEven the 'hole' has no serial-number, it is still need to model the 'hole' because there are multiple 'holes' in the device which need to be numbered and need to distinguish the different types of 'holes' within the network element, which may have different capabilities in terms of SFP modules which can be plugged-id.\r\n\r\nIt has been agreed that the four cases (pluggable transceiver port, non-pluggable transceiver port, empty hole and non-pluggable integrated port) apply to both optical and electrical ports.\r\n\r\nJeff: it is important to highlight that a port is the starting point of a service.\r\nNigel: In TAPI the access port has been defined (considered) as conceptual bridge between the logical model and physical model.\r\n\r\nItalo: I am not sure we need to associate the port with the service or a new object to bridge between the functional view and the hardware/equipment view. The service starts from an LTP and the LTP can be associated with a port.\r\n\r\nIt has been agreed that there is no need to report two components for the Tx and Rx connector. A single 'port' component instance can be used to report the combination of the Tx and Rx connectors. In case of bidirectional connectors (e.g., a pin terminating a bidirectional fiber or an RJ-45 connector), a single 'port' component instance can be used to report the bidirectional connector.\r\n\r\nJeff: for me, on a pluggable, the port is the connector or the combination of the Tx and Rx connectors\r\n\r\nIt was highlighted that the SFP module and the connector/connectors pair can be modelled as a single 'port' component. In this case, there  is no need for a new component class (the 'transceiver' component class in the slides) and no need to differentiate in the model between the non-pluggable transceiver port and the non-pluggable integrated port.\r\n\r\nJeff disagreed not have a specific component for transceiver.\r\n\r\nThis issue needs further discussion.\r\n\r\nThe slides propose to model the 'hole', where an SFP module can be plugged-in, as a 'port' component instead of as a 'container' component\r\n\r\nThere was no agreement on whether the 'hole', where an SFP module can be plugged-in, should be modelled as a 'port' component or as an holder component of a different class (e.g., 'container' component class or as a new component class)\r\n\r\n- [x] @italobusi  send a mail to the IVY WG to gather more feedbacks also from other operators on how to model the 'hole' where an SPF module can be plugged-in\r\n",
+          "createdAt": "2024-05-15T11:47:45Z",
+          "updatedAt": "2024-05-15T11:48:44Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> - [x] @italobusi send a mail to the IVY WG to gather more feedbacks also from other operators on how to model the 'hole' where an SPF module can be plugged-in\r\n\r\nDraft text for the mail provided in:\r\n\r\nhttps://demo.hedgedoc.org/6AxuTUrRRQ661IUDMc1AYw\r\n\r\nWaiting for feedbacks from the participants to the call before sending it to the IVY WG mailing list",
+          "createdAt": "2024-05-15T11:49:36Z",
+          "updatedAt": "2024-05-15T11:49:36Z"
+        },
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@italobusi : I think the text is reporting correctly the discussion we had. I would have just added the reference to BBF new object to define \"hole\", that in the context of Option 2.",
+          "createdAt": "2024-05-15T13:28:00Z",
+          "updatedAt": "2024-05-15T13:28:00Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-05-15 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-05-15.md)**\r\n\r\nIt has been agreed to send the mail asking for feedbacks to the IVY WG without providing any pros&cons analysis. Supporters of one option can reply to the mail with their opinion about the advantages of the option they prefer.\r\n\r\nThe objective is to get a decision between option 1 and option 2 before the next call (May 22, 2024).\r\n\r\nIf option 2 is selected, we can later discuss the pros&cons of reusing the 'container' component class or defining a new component class, such as the 'cage' as proposed by BBF.\r\n\r\nNigel thinks that the hole is present with or without anything plugged-in and its capabilities have to be reported. Even if some holes are specialize for a single type of SFP, nothing precludes holes that can have different types of SFPs or with more than one 'port'.\r\nAn 'hole' can also host some other type of module (e.g., a memory module) without any external connector, not necessarily a transceiver.\r\n\r\nAihua reported the use case to retrieve all the capabilities of a board, including the empty 'holes', pluggable ports and non-pluggable ports.\r\n\r\nAccording to Nigel the capability of the cards should be known by the controller before the card is plugged-in either through offline information or by some capability model.\r\n\r\nPrasenjit reported that if there is a mismatch between the capabilities of the 'hole' and what it is plugged-in, an alarm should be raised.\r\n\r\nAihua reported that in the published BBF the 'transceiver-link' component is not used to report a optical connector but the 'transceiver' function within an SFP module (which is modelled in BBF as a 'transceiver' component). There are scenarios where a single SFP module can contain more than on 'transceiver' functions.\r\n\r\nIt has been highlighted that the current approach in IVY WG is to decouple the functional view from the hardware view. The functional view of the 'transceiver' is already modelled in the optical impairments topology and equally applies to the 'transceivers' hosted in an SFP module as well as those hosted on a 'transponder card'.\r\n\r\nIt may be worthwhile having some examples of the PON possible configurations to check how the base model can be used to model the PON port, especially those at the OLT.\r\n",
+          "createdAt": "2024-05-15T16:12:05Z",
+          "updatedAt": "2024-05-15T16:12:05Z"
         }
       ]
     }
