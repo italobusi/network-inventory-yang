@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-16T00:40:19.568411+00:00",
+  "timestamp": "2024-05-19T00:43:57.537303+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1506,6 +1506,22 @@
           "updatedAt": "2024-05-15T16:12:05Z"
         }
       ]
+    },
+    {
+      "number": 46,
+      "id": "I_kwDOKiDYo86JN63B",
+      "title": "How to add Passive Inventory?",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/46",
+      "state": "OPEN",
+      "author": "mamali68",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Use Case: \r\n\r\n- Passive Hardware should be handled by network inventory? what is the procedure to create a component when the Class and some other attributes are Config False. \r\n\r\n\r\n```\r\n[...]\r\n+--rw components\r\n              +--rw component* [component-id]\r\n                 +--rw component-id              string\r\n                 +--ro class                     union\r\n                 +--ro uuid?                     yang:uuid\r\n                 +--rw name?                     string\r\n                 +--rw description?              string\r\n[...]\r\n```\r\n",
+      "createdAt": "2024-05-17T08:29:42Z",
+      "updatedAt": "2024-05-17T08:29:42Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
