@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-21T00:40:54.848593+00:00",
+  "timestamp": "2024-05-23T00:40:38.440572+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1467,7 +1467,7 @@
       "labels": [],
       "body": "This issue was raised when we were considering how to introduce transceiver into the base model.\r\nWe found the understandings of port  were not aligned, so we collected four scenarios of port & transceiver installation and run this discussion with several proposals.\r\nThe slide we discussed on the weekly call of 8th May, 2024 is attached below:\r\n[Discussion of Port Modeling-20240508.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15258754/Discussion.of.Port.Modeling-20240508.pptx)  ",
       "createdAt": "2024-05-09T06:57:12Z",
-      "updatedAt": "2024-05-15T16:12:06Z",
+      "updatedAt": "2024-05-22T09:32:37Z",
       "closedAt": null,
       "comments": [
         {
@@ -1504,6 +1504,13 @@
           "body": "**[2024-05-15 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-05-15.md)**\r\n\r\nIt has been agreed to send the mail asking for feedbacks to the IVY WG without providing any pros&cons analysis. Supporters of one option can reply to the mail with their opinion about the advantages of the option they prefer.\r\n\r\nThe objective is to get a decision between option 1 and option 2 before the next call (May 22, 2024).\r\n\r\nIf option 2 is selected, we can later discuss the pros&cons of reusing the 'container' component class or defining a new component class, such as the 'cage' as proposed by BBF.\r\n\r\nNigel thinks that the hole is present with or without anything plugged-in and its capabilities have to be reported. Even if some holes are specialize for a single type of SFP, nothing precludes holes that can have different types of SFPs or with more than one 'port'.\r\nAn 'hole' can also host some other type of module (e.g., a memory module) without any external connector, not necessarily a transceiver.\r\n\r\nAihua reported the use case to retrieve all the capabilities of a board, including the empty 'holes', pluggable ports and non-pluggable ports.\r\n\r\nAccording to Nigel the capability of the cards should be known by the controller before the card is plugged-in either through offline information or by some capability model.\r\n\r\nPrasenjit reported that if there is a mismatch between the capabilities of the 'hole' and what it is plugged-in, an alarm should be raised.\r\n\r\nAihua reported that in the published BBF the 'transceiver-link' component is not used to report a optical connector but the 'transceiver' function within an SFP module (which is modelled in BBF as a 'transceiver' component). There are scenarios where a single SFP module can contain more than on 'transceiver' functions.\r\n\r\nIt has been highlighted that the current approach in IVY WG is to decouple the functional view from the hardware view. The functional view of the 'transceiver' is already modelled in the optical impairments topology and equally applies to the 'transceivers' hosted in an SFP module as well as those hosted on a 'transponder card'.\r\n\r\nIt may be worthwhile having some examples of the PON possible configurations to check how the base model can be used to model the PON port, especially those at the OLT.\r\n",
           "createdAt": "2024-05-15T16:12:05Z",
           "updatedAt": "2024-05-15T16:12:05Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As an input for our discussion, I have prepared some examples describing scenarios with non-MPO ports, MPO ports without breakouts and MPO ports with breakouts:\r\n\r\n[port-examples-06.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15401220/port-examples-06.pptx)\r\n",
+          "createdAt": "2024-05-22T09:32:36Z",
+          "updatedAt": "2024-05-22T09:32:36Z"
         }
       ]
     },
@@ -1520,6 +1527,26 @@
       "body": "Use Case: \r\n\r\n- Passive Hardware should be handled by network inventory? what is the procedure to create a component when the Class and some other attributes are Config False. \r\n\r\n\r\n```\r\n[...]\r\n+--rw components\r\n              +--rw component* [component-id]\r\n                 +--rw component-id              string\r\n                 +--ro class                     union\r\n                 +--ro uuid?                     yang:uuid\r\n                 +--rw name?                     string\r\n                 +--rw description?              string\r\n[...]\r\n```\r\n",
       "createdAt": "2024-05-17T08:29:42Z",
       "updatedAt": "2024-05-17T08:29:42Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 47,
+      "id": "I_kwDOKiDYo86JuWEW",
+      "title": "Wrong identity for software in the core YANG model",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/47",
+      "state": "OPEN",
+      "author": "aguoietf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "aguoietf"
+      ],
+      "labels": [
+        "bug"
+      ],
+      "body": "The YANG model refers to a non-existing identity \"iana-hadware:software\" while constraining the container software-specific-info.\r\n\r\n    container software-specific-info {\r\n      when \"../class = 'ianahw:software'\";\r\n      description \r\n        \"This container contains some attributes belong to\r\n        software only.\";\r\n      uses software-specific-info-grouping;\r\n      config false;\r\n    }\r\n\r\nIt caused a yanglint error and needs to be fixed.\r\nSince the software model is still being defined,  I'd propose to leave this container empty and leave it for the software model to augment, or even better, remove the container completely from the core model.\r\n\r\n",
+      "createdAt": "2024-05-22T14:02:55Z",
+      "updatedAt": "2024-05-22T14:14:33Z",
       "closedAt": null,
       "comments": []
     }
@@ -2046,6 +2073,46 @@
           "body": "",
           "createdAt": "2024-04-10T15:55:18Z",
           "updatedAt": "2024-04-10T15:55:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOKiDYo85wPBMY",
+      "title": "Remove software related containers and groupings and fix pyang warnings",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/48",
+      "state": "OPEN",
+      "author": "aguoietf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Summary of changes for fixing issue #47 \r\n- Removed the software-specific-info container and the software-specific-info-grouping grouping, thus fixed the error for incorrect identity of ianahw:software\r\n- Adjusted the order for \"config false\" statement and added missing descriptions for certain containers and grouping. This fixed the pyang warning.\r\n\r\nThe YANG tree was updated accordingly.",
+      "createdAt": "2024-05-22T17:27:16Z",
+      "updatedAt": "2024-05-22T19:58:33Z",
+      "baseRepository": "ietf-ivy-wg/network-inventory-yang",
+      "baseRefName": "main",
+      "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
+      "headRepository": "aguoietf/network-inventory-yang",
+      "headRefName": "main",
+      "headRefOid": "8945c150a59de2ca5934c496c5a1600ccdd0045d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKiDYo857g9VQ",
+          "commit": {
+            "abbreviatedOid": "8945c15"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-05-22T19:58:33Z",
+          "updatedAt": "2024-05-22T19:58:33Z",
           "comments": []
         }
       ]
