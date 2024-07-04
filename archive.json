@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-02T00:43:04.552793+00:00",
+  "timestamp": "2024-07-04T00:43:10.362538+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1467,7 +1467,7 @@
       "labels": [],
       "body": "This issue was raised when we were considering how to introduce transceiver into the base model.\r\nWe found the understandings of port  were not aligned, so we collected four scenarios of port & transceiver installation and run this discussion with several proposals.\r\nThe slide we discussed on the weekly call of 8th May, 2024 is attached below:\r\n[Discussion of Port Modeling-20240508.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/15258754/Discussion.of.Port.Modeling-20240508.pptx)  ",
       "createdAt": "2024-05-09T06:57:12Z",
-      "updatedAt": "2024-06-26T15:08:20Z",
+      "updatedAt": "2024-07-03T17:39:17Z",
       "closedAt": null,
       "comments": [
         {
@@ -1585,9 +1585,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-06-26 Base Network Inventory weekly call](https://demo.hedgedoc.org/YXlHvwyEQ-K3CFMWXZuYfQ)**\r\n\r\nUnder review\r\n",
+          "body": "**[2024-06-26 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/wiki/minutes-2024-06-26)**\r\n\r\nPhil presented some slides about the OpenConfig modelling: [openconfig-breakout-groups.pptx](https://github.com/user-attachments/files/15991133/openconfig-breakout-groups.pptx)\r\n\r\nA port in OpenConfig is not field replaceable: it is either an 'SFP hole' or integrated connector (in case of non-pluggable ports)\r\n\r\n```\r\nport (SFP hole)\r\n  transceiver\r\n```\r\n\r\nPort is a parent component of the transceiver inserted into that port \r\n\r\nOpenConfig does not model the host channels but only the media channels on the line (as physical channels under the transceiver component if applicable)\r\n\r\nNo breakout configuration means the host \"interface\" maps to all host to transceiver and transceiver to media channels. \r\n\r\nThe OC \"interface\" is referencing the port, the transceiver and the list of media channels\r\n\r\nIn case of a breakout, each interface will reference the same port and the same transceiver, but different physical media channels\r\n\r\nIn the case where the transceiver is on the cable (the cable cannot be unplugged from the SFP), like the QSFP-4x10G-AOC10M, it is modelled as:\r\n\r\n```\r\nport (SFP hole)\r\n  transceiver\r\n  4x children ports\r\n```\r\n",
           "createdAt": "2024-06-26T15:08:19Z",
-          "updatedAt": "2024-06-26T15:08:19Z"
+          "updatedAt": "2024-07-03T17:39:17Z"
         }
       ]
     },
@@ -1634,6 +1634,24 @@
           "updatedAt": "2024-06-05T16:54:04Z"
         }
       ]
+    },
+    {
+      "number": 50,
+      "id": "I_kwDOKiDYo86OZhLZ",
+      "title": "Presentation at IETF 120",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/50",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "italobusi"
+      ],
+      "labels": [],
+      "body": "Prepare a presentation for the IVY WG at IETF 120",
+      "createdAt": "2024-07-03T16:43:45Z",
+      "updatedAt": "2024-07-03T16:43:45Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -2174,13 +2192,13 @@
       "labels": [],
       "body": "Summary of changes to fix #47 \r\n- Removed the software-specific-info container and the software-specific-info-grouping grouping, thus fixed the error for incorrect identity of ianahw:software\r\n- Adjusted the order for \"config false\" statement and added missing descriptions for certain containers and grouping. This fixed the pyang warning.\r\n\r\nThe YANG tree was updated accordingly.",
       "createdAt": "2024-05-22T17:27:16Z",
-      "updatedAt": "2024-05-24T10:51:21Z",
+      "updatedAt": "2024-07-03T18:36:38Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
       "headRepository": "aguoietf/network-inventory-yang",
       "headRefName": "main",
-      "headRefOid": "8945c150a59de2ca5934c496c5a1600ccdd0045d",
+      "headRefOid": "1597780c6ea2998dd94a9041e4c03860df47f3f7",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2192,6 +2210,20 @@
           "body": "Aihua, can you also help to remove related information in the draft? such as section 2.4.2 and section 4.",
           "createdAt": "2024-05-23T00:55:21Z",
           "updatedAt": "2024-05-23T00:55:21Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-06-26 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/wiki/minutes-2024-06-26)**\r\n\r\n- [ ] @YuChaode : follow-up PR review and submit the update I-D",
+          "createdAt": "2024-07-03T16:42:03Z",
+          "updatedAt": "2024-07-03T16:42:03Z"
+        },
+        {
+          "author": "aguoietf",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I added a commit to align the draft text with the change in YANG - by removing the software-specific-info grouping and indicating that it can be defined in an augmented model.",
+          "createdAt": "2024-07-03T18:36:37Z",
+          "updatedAt": "2024-07-03T18:36:37Z"
         }
       ],
       "reviews": [
@@ -2218,11 +2250,13 @@
       "state": "OPEN",
       "author": "boucadair",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "YuChaode"
+      ],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-30T13:59:52Z",
-      "updatedAt": "2024-06-26T14:09:10Z",
+      "updatedAt": "2024-07-03T17:46:56Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
@@ -2233,8 +2267,30 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-06-26 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/wiki/minutes-2024-06-26)**\r\n\r\n- [ ] @YuChaode : follow-up PR review and submit the update I-D",
+          "createdAt": "2024-07-03T16:42:08Z",
+          "updatedAt": "2024-07-03T16:42:08Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKiDYo86AkeD1",
+          "commit": {
+            "abbreviatedOid": "2adfa5e"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-03T17:46:56Z",
+          "updatedAt": "2024-07-03T17:46:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
