@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-04T00:43:10.362538+00:00",
+  "timestamp": "2024-07-07T00:47:54.249973+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -2192,7 +2192,7 @@
       "labels": [],
       "body": "Summary of changes to fix #47 \r\n- Removed the software-specific-info container and the software-specific-info-grouping grouping, thus fixed the error for incorrect identity of ianahw:software\r\n- Adjusted the order for \"config false\" statement and added missing descriptions for certain containers and grouping. This fixed the pyang warning.\r\n\r\nThe YANG tree was updated accordingly.",
       "createdAt": "2024-05-22T17:27:16Z",
-      "updatedAt": "2024-07-03T18:36:38Z",
+      "updatedAt": "2024-07-05T15:59:43Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
@@ -2239,6 +2239,19 @@
           "createdAt": "2024-05-22T19:58:33Z",
           "updatedAt": "2024-05-22T19:58:33Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOKiDYo86Azdgs",
+          "commit": {
+            "abbreviatedOid": "1597780"
+          },
+          "author": "prmanna",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-05T15:59:43Z",
+          "updatedAt": "2024-07-05T15:59:43Z",
+          "comments": []
         }
       ]
     },
@@ -2256,7 +2269,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-05-30T13:59:52Z",
-      "updatedAt": "2024-07-03T17:46:56Z",
+      "updatedAt": "2024-07-06T15:16:23Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
@@ -2288,6 +2301,32 @@
           "body": "",
           "createdAt": "2024-07-03T17:46:56Z",
           "updatedAt": "2024-07-03T17:46:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKiDYo86Azac_",
+          "commit": {
+            "abbreviatedOid": "2adfa5e"
+          },
+          "author": "prmanna",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-05T15:49:21Z",
+          "updatedAt": "2024-07-05T15:49:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKiDYo86A1ooa",
+          "commit": {
+            "abbreviatedOid": "2adfa5e"
+          },
+          "author": "philbedard",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-06T15:16:23Z",
+          "updatedAt": "2024-07-06T15:16:23Z",
           "comments": []
         }
       ]
