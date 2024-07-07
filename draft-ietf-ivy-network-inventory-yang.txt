@@ -545,9 +545,12 @@ Table of Contents
    According to the management requirements from operators, some
    important attributes are not defined in [RFC8348].  These attributes
    could be component-specific and are not suitable to define under the
-   component list node.  So, the model can be augmented with HW/SW
-   specific-info-grouping containing attributes applicable to HW e.g.
-   boards/slot or SW e.g. software-module/boot-loader component only.
+   component list node.  So, the model can be augmented with HW-
+   specific-info grouping containing attributes applicable to HW e.g.
+   boards/slot components only.  Other component-specific attributes,
+   such as SW-specific-info, may be defined in companion augmentation
+   data models, such as [I-D.wzwb-ivy-network-inventory-software] and
+   are out of the scope of this model.
 
    +--rw components
       +--rw component* [component-id]
@@ -557,7 +560,6 @@ Table of Contents
       |  +--ro slot-specific-info
       |  +--ro board-specific-info
       |  +--ro port-specific-info
-      |  +--ro software-specific-info
 
 2.4.3.  Part Number
 
@@ -601,50 +603,49 @@ Table of Contents
    in module "ietf-network-inventory" (Section 5).
 
    module: ietf-network-inventory
-      +--rw network-inventory
-         +--rw network-elements
-            +--rw network-element* [ne-id]
-               +--rw ne-id                 string
-               +--ro ne-type?              identityref
-               +--ro uuid?                 yang:uuid
-               +--rw name?                 string
-               +--rw description?          string
-               +--rw alias?                string
-               +--ro hardware-rev?         string
-               +--ro software-rev?         string
-               +--ro software-patch-rev*   string
-               +--ro mfg-name?             string
-               +--ro mfg-date?             yang:date-and-time
-               +--ro serial-number?        string
-               +--ro product-name?         string
-               +--rw components
-                  +--rw component* [component-id]
-                     +--rw component-id              string
-                     +--ro class                     union
-                     +--ro uuid?                     yang:uuid
-                     +--rw name?                     string
-                     +--rw description?              string
-                     +--rw alias?                    string
-                     +--ro child-component-ref
-                     +--ro parent-rel-pos?           int32
-                     +--ro parent-component-ref
-                     +--ro hardware-rev?             string
-                     +--ro firmware-rev?             string
-                     +--ro software-rev?             string
-                     +--ro software-patch-rev*       string
-                     +--ro serial-num?               string
-                     +--ro mfg-name?                 string
-                     +--ro part-number?              string
-                     +--ro product-name?             string
-                     +--ro asset-id?                 string
-                     +--ro is-fru?                   boolean
-                     +--ro mfg-date?                 yang:date-and-time
-                     +--ro uri*                      inet:uri
-                     +--ro chassis-specific-info
-                     +--ro slot-specific-info
-                     +--ro board-specific-info
-                     +--ro port-specific-info
-                     +--ro software-specific-info
+     +--rw network-inventory
+        +--rw network-elements
+           +--rw network-element* [ne-id]
+              +--rw ne-id                 string
+              +--ro ne-type?              identityref
+              +--ro uuid?                 yang:uuid
+              +--rw name?                 string
+              +--rw description?          string
+              +--rw alias?                string
+              +--ro hardware-rev?         string
+              +--ro software-rev?         string
+              +--ro software-patch-rev*   string
+              +--ro mfg-name?             string
+              +--ro mfg-date?             yang:date-and-time
+              +--ro serial-number?        string
+              +--ro product-name?         string
+              +--rw components
+                 +--rw component* [component-id]
+                    +--rw component-id             string
+                    +--ro class                    union
+                    +--ro uuid?                    yang:uuid
+                    +--rw name?                    string
+                    +--rw description?             string
+                    +--rw alias?                   string
+                    +--ro child-component-ref
+                    +--ro parent-rel-pos?          int32
+                    +--ro parent-component-ref
+                    +--ro hardware-rev?            string
+                    +--ro firmware-rev?            string
+                    +--ro software-rev?            string
+                    +--ro software-patch-rev*      string
+                    +--ro serial-num?              string
+                    +--ro mfg-name?                string
+                    +--ro part-number?             string
+                    +--ro product-name?            string
+                    +--ro asset-id?                string
+                    +--ro is-fru?                  boolean
+                    +--ro mfg-date?                yang:date-and-time
+                    +--ro uri*                     inet:uri
+                    +--ro chassis-specific-info
+                    +--ro slot-specific-info
+                    +--ro board-specific-info
+                    +--ro port-specific-info
 
                   Figure 2: Network inventory tree diagram
 
@@ -874,14 +875,6 @@ Table of Contents
             port only.";
          uses port-specific-info-grouping;
        }
-       container software-specific-info {
-         when "../class = 'ianahw:software'";
-         config false;
-         description
-           "This container contains some attributes belong to
-            software only.";
-         uses software-specific-info-grouping;
-       }
      }
 
      grouping chassis-specific-info-grouping {
@@ -908,15 +901,9 @@ Table of Contents
          "Specific attributes applicable to ports only.";
      }
 
-     grouping software-specific-info-grouping {
-       //To be enriched in the future.
-       description
-         "Specific attributes applicable to software only.";
-     }
-
      grouping ne-info-grouping {
        description
-         "NE Info.";
+         "Grouping for network elements.";
        container network-elements {
          description
            "The top-level container for the list of network elements
@@ -1143,7 +1130,7 @@ Table of Contents
 
      container network-inventory {
        description
-         "Main container.";
+         "Top-level container for network inventory.";
        uses ne-info-grouping;
      }
    }
