@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 8 January 2025                                            Nokia
+Expires: 9 January 2025                                            Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                      TIM
                                                                P. Bedard
                                                                    Cisco
-                                                             7 July 2024
+                                                             8 July 2024
 
 
                 A YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2025.
+   This Internet-Draft will expire on 9 January 2025.
 
 Copyright Notice
 
@@ -155,7 +155,7 @@ Table of Contents
    be as much as possible technology agnostic (valid for IP, optical and
    microwave networks) and that could be augmented, when required, to
    include some technology-specific inventory details together with
-   specific HW or SW component’s attributes.
+   specific HW or SW component's attributes.
 
    [RFC8348] defines a YANG data model for the management of the
    hardware on a single server and therefore it is more applicable to
