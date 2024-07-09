@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-07T00:47:54.249973+00:00",
+  "timestamp": "2024-07-09T00:43:23.336189+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1104,7 +1104,7 @@
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/31",
       "state": "CLOSED",
       "author": "boucadair",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Some quick comments:\r\n\u2022\tPlease soften the various citations to ACTN. I would simply remove them.\r\n\u2022\tConsider adding a dedicated section to describe the provisions in the model for future augmentations. \r\n\u2022\tConsider if some data nodes that are defined in other models can be added directly to the base model, e.g., the following ones from draft-li\r\n\r\n       +--ro required-components*          -> ../uuid\r\n       +--ro dependent-components*         -> ../uuid\r\n",
@@ -1114,7 +1114,7 @@
       "comments": [
         {
           "author": "boucadair",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Redundant with https://github.com/ietf-ivy-wg/network-inventory-yang/issues/9",
           "createdAt": "2023-12-05T17:00:25Z",
           "updatedAt": "2023-12-05T17:00:25Z"
@@ -1612,7 +1612,7 @@
       "id": "I_kwDOKiDYo86JuWEW",
       "title": "Wrong identity for software in the core YANG model",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/47",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aguoietf",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1623,8 +1623,8 @@
       ],
       "body": "The YANG model refers to a non-existing identity \"iana-hadware:software\" while constraining the container software-specific-info.\r\n\r\n    container software-specific-info {\r\n      when \"../class = 'ianahw:software'\";\r\n      description \r\n        \"This container contains some attributes belong to\r\n        software only.\";\r\n      uses software-specific-info-grouping;\r\n      config false;\r\n    }\r\n\r\nIt caused a yanglint error and needs to be fixed.\r\nSince the software model is still being defined,  I'd propose to leave this container empty and leave it for the software model to augment, or even better, remove the container completely from the core model.\r\n\r\n",
       "createdAt": "2024-05-22T14:02:55Z",
-      "updatedAt": "2024-06-05T16:54:04Z",
-      "closedAt": null,
+      "updatedAt": "2024-07-07T01:32:18Z",
+      "closedAt": "2024-07-07T01:32:18Z",
       "comments": [
         {
           "author": "italobusi",
@@ -2185,24 +2185,26 @@
       "id": "PR_kwDOKiDYo85wPBMY",
       "title": "Remove software related containers and groupings and fix pyang warnings",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/48",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "aguoietf",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Summary of changes to fix #47 \r\n- Removed the software-specific-info container and the software-specific-info-grouping grouping, thus fixed the error for incorrect identity of ianahw:software\r\n- Adjusted the order for \"config false\" statement and added missing descriptions for certain containers and grouping. This fixed the pyang warning.\r\n\r\nThe YANG tree was updated accordingly.",
       "createdAt": "2024-05-22T17:27:16Z",
-      "updatedAt": "2024-07-05T15:59:43Z",
+      "updatedAt": "2024-07-07T01:32:17Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
       "headRepository": "aguoietf/network-inventory-yang",
       "headRefName": "main",
       "headRefOid": "1597780c6ea2998dd94a9041e4c03860df47f3f7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-07-07T01:32:17Z",
+      "mergedAt": "2024-07-07T01:32:17Z",
+      "mergedBy": "italobusi",
+      "mergeCommit": {
+        "oid": "5b8aa4cb83905e1438b591c5a04d469e67c985be"
+      },
       "comments": [
         {
           "author": "YuChaode",
@@ -2260,26 +2262,28 @@
       "id": "PR_kwDOKiDYo85xBCuD",
       "title": "Fix 50 errors, 4 warnings",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/49",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "boucadair",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "YuChaode"
       ],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-30T13:59:52Z",
-      "updatedAt": "2024-07-06T15:16:23Z",
+      "updatedAt": "2024-07-07T01:22:50Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "0c5e46008f11ce492738a4ade12608beb0caa74f",
       "headRepository": "boucadair/network-inventory-yang",
       "headRefName": "patch-1",
       "headRefOid": "2adfa5eae6fb236db3cc391014839e771d4ff9bd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-07-07T01:22:49Z",
+      "mergedAt": "2024-07-07T01:22:49Z",
+      "mergedBy": "italobusi",
+      "mergeCommit": {
+        "oid": "484538083d49898f77339991e7b4ccb12242f9f6"
+      },
       "comments": [
         {
           "author": "italobusi",
