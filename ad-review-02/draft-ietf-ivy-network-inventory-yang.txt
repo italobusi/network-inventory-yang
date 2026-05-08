@@ -1561,10 +1561,10 @@ Appendix A.  Comparison With Openconfig-platform Data Model
    | version       | rev         |                                    |
    +---------------+-------------+------------------------------------+
    | firmware-     | software-   | items of software-rev list that    |
-   | version       | rev*        | provide firmware informantion      |
+   | version       | rev*        | provide firmware information       |
    +---------------+-------------+------------------------------------+
    | software-     | software-   | items of software-rev list that    |
-   | version       | rev*        | provide software informantion      |
+   | version       | rev*        | provide software information       |
    +---------------+-------------+------------------------------------+
    | serial-no     | serial-     |                                    |
    |               | number      |                                    |
