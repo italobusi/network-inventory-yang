@@ -1635,8 +1635,8 @@ Appendix A.  Comparison With Openconfig-platform Data Model
 
    It is also useful to compare the identity oc-platform-
    type:OPENCONFIG_HARDWARE_COMPONENT with ianahw:hardware-class in the
-   following Table 3 to highlight that our model allign with openconfig-
-   platorm also for the definizion of hardware component type/class.
+   following Table 3 to highlight that our model align with openconfig-
+   platorm also for the definition of hardware component type/class.
 
    +================================================+==================+
    | oc-platform-                                   | ianahw:hardware- |
