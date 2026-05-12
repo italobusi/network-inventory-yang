@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 9 November 2026                                           Nokia
+Expires: 13 November 2026                                          Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                 FiberCop
                                                                P. Bedard
                                                                    Cisco
-                                                              8 May 2026
+                                                             12 May 2026
 
 
               A Base YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 November 2026.
+   This Internet-Draft will expire on 13 November 2026.
 
 Copyright Notice
 
@@ -543,9 +543,9 @@ Table of Contents
 3.3.1.  Hardware Components
 
    Other models (e.g., [TMF_SD2-20]) classifies the hardware components
-   into into two groups: holder group and equipment group.  The holder
-   group contains rack, chassis, slot, sub-slot while the equipment
-   group contains network-element, board and port.  This model, likewise
+   into two groups: holder group and equipment group.  The holder group
+   contains rack, chassis, slot, sub-slot while the equipment group
+   contains network-element, board and port.  This model, likewise
    [RFC8348], does not follow this classification and manage all the
    hardware components without distinguishing between holder and
    equipment groups.
