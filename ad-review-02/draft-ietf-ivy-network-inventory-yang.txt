@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 13 November 2026                                          Nokia
+Expires: 14 November 2026                                          Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                 FiberCop
                                                                P. Bedard
                                                                    Cisco
-                                                             12 May 2026
+                                                             13 May 2026
 
 
               A Base YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 November 2026.
+   This Internet-Draft will expire on 14 November 2026.
 
 Copyright Notice
 
@@ -203,7 +203,7 @@ Table of Contents
 
    *  XXXX --> the assigned RFC number for this I-D
 
-   *  2026-04-22 --> the actual date of the publication of this document
+   *  2026-05-13 --> the actual date of the publication of this document
 
 2.  Terminology and Notations
 
@@ -730,7 +730,7 @@ Table of Contents
 
 5.  YANG Data Model for Network Inventory
 
-   <CODE BEGINS> file "ietf-network-inventory@2026-04-22.yang"
+   <CODE BEGINS> file "ietf-network-inventory@2026-05-13.yang"
    module ietf-network-inventory {
      yang-version 1.1;
      namespace "urn:ietf:params:xml:ns:yang:ietf-network-inventory";
@@ -798,7 +798,7 @@ Table of Contents
         described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
         they appear in all capitals, as shown here.";
 
-     revision 2026-04-22 {
+     revision 2026-05-13 {
        description
          "Initial version";
        reference
@@ -1204,10 +1204,15 @@ Table of Contents
                    "This node indicates whether the chassis is taking or
                     not the 'main' role.
 
-                    This node is applicable only to scenarios where
-                    there are chassis components which can take the
-                    'main' role (e.g., multi-chassis network elements),
-                    otherwise it is omitted.";
+                    This node is applicable only to scenarios where the
+                    network element contains chassis components which
+                    can take or not the 'main' role (e.g., multi-chassis
+                    network elements).
+
+                    It is therefore omitted in scenarios where the
+                    network element does not contain chassis components
+                    which can can take or not the 'main' role
+                    (e.g., single-chassis network elements).";
                }
              }
            }
