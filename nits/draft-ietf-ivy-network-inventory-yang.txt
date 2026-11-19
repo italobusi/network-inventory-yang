@@ -439,7 +439,7 @@ Table of Contents
    them as components from an inventory perspective.
 
    The identity definition of additional types of "ne-type" and "non-
-   hardware" identity of component are outside the scope of this
+   hardware-class" identity of component are outside the scope of this
    document and could be defined in application- and technology-specific
    companion augmentation data models, such as
    [I-D.ietf-ivy-network-inventory-software].
@@ -574,8 +574,8 @@ Table of Contents
    asset-id:  An asset tracking identifier for the component, provided
       by a network operator.
 
-   is-fru:  Indicates whether or not a component is considered a "field-
-      replaceable unit" by the vendor.
+   is-fru:  Indicates whether or not a component is considered a field-
+      replaceable unit by the vendor.
 
    uri:  A list of Uniform Resource Identifiers (URIs) which provide
       additional identification information about the component.
@@ -591,7 +591,7 @@ Table of Contents
       Boards which occupy multiple slots have multiple parent components
       (one for each occupied slot).
 
-   parent-rel-pos:  When this component is contained in the network-
+   parent-rel-pos:  When this component is contained in the network
       element or in only one parent component and has sibling
       components, this attribute represents the relative position of
       this component with respect to the parent component among all the
@@ -605,9 +605,9 @@ Table of Contents
    For state data like "admin-state", "oper-state", and so on, this
    document considers that they are related to device hardware
    management, not network inventory.  Therefore, they are outside of
-   the scope of this document.  Same for the sensor-data, they might be
-   defined in some other performance monitoring data models instead of
-   the inventory data model.
+   the scope of this document.  Same for the "sensor-data", they might
+   be defined in some other performance monitoring data models instead
+   of the inventory data model.
 
 3.4.1.  Hardware Components
 
@@ -743,8 +743,8 @@ Table of Contents
 
    Instead, the component "name" is defined as an optional attribute and
    the "component-id" attribute is defined as the key for the component
-   list (in alignment with the approach followed for the network-element
-   list).
+   list (in alignment with the approach followed for the "network-
+   element" list).
 
 3.5.3.  Association with the parent component
 
@@ -763,8 +763,8 @@ Table of Contents
 
    Furthermore, to support cases where a component is physically
    contained within multiple parent components (e.g., a board occupying
-   multiple slots), the "parent" data node is defined as a leaf-list
-   rather than a single leaf (as in [RFC8348]).
+   multiple slots), the "parent" data node is defined as a "leaf-list"
+   rather than a single "leaf" (as in [RFC8348]).
 
    In such multi-parent cases, each referenced parent is an atomic
    container (such as a slot or sub-slot) that is fully occupied by that
@@ -1376,8 +1376,8 @@ Table of Contents
    information.  When combining network inventories from lower-level
    network controllers, the higher-level controller acts as the server
    for its northbound interface and is responsible for ensuring that the
-   "ne-id" values remain unique within the combined network-element list
-   it exposes.
+   "ne-id" values remain unique within the combined "network-element"
+   list it exposes.
 
    The inventory needs to be updated every time components are added or
    removed from the network.  Protocol-specific mechanisms can be used
@@ -1780,10 +1780,12 @@ Appendix B.  Comparison With OpenConfig Platform YANG Data Model
    +-------------+-----------+-----------------------------------+-----------+
    |parent       |parent     |                                   |In         |
    |             |           |                                   |OpenConfig,|
-   |             |           |                                   |the parent |
-   |             |           |                                   |is a leaf  |
+   |             |           |                                   |the        |
+   |             |           |                                   |"parent"   |
+   |             |           |                                   |data node  |
+   |             |           |                                   |is a "leaf"|
    |             |           |                                   |and not a  |
-   |             |           |                                   |leaf-list  |
+   |             |           |                                   |"leaf-list"|
    +-------------+-----------+-----------------------------------+-----------+
    |redundant-   |           |Functional information, may be part|           |
    |role         |           |of a future augmentation           |           |
@@ -1820,9 +1822,9 @@ Appendix B.  Comparison With OpenConfig Platform YANG Data Model
    |             |           |as part of "description"           |           |
    +-------------+-----------+-----------------------------------+-----------+
    |subcomponents|           |Duplicated information with respect|           |
-   |             |           |to the parent attribute, to support|           |
-   |             |           |reverse navigation from parent to  |           |
-   |             |           |children components                |           |
+   |             |           |to the "parent" data node, to      |           |
+   |             |           |support reverse navigation from    |           |
+   |             |           |parent to children components      |           |
    +-------------+-----------+-----------------------------------+-----------+
 
        Table 2: Comparison between openconfig platform and inventory

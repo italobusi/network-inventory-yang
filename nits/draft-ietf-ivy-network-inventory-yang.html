@@ -1650,7 +1650,7 @@ component inventory objects that can be managed as hardware components from an i
 <p id="section-3.1-7">The top-level "components" container exposes a list of components, within each network element, and other parameters.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
 <p id="section-3.1-8">Different component types can be distinguished by the class of component. The component "class" is defined as a union between the hardware class identity, defined in "iana-hardware", and the "non-hardware-class" identity, defined in this document.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
 <p id="section-3.1-9">Other component types can be defined in other documents, together with the associated YANG identities and the rationale for managing them as components from an inventory perspective.<a href="#section-3.1-9" class="pilcrow">¶</a></p>
-<p id="section-3.1-10">The identity definition of additional types of "ne-type" and "non-hardware"
+<p id="section-3.1-10">The identity definition of additional types of "ne-type" and "non-hardware-class"
 identity of component are outside the scope of this
 document and could be defined in application- and technology-specific companion augmentation data models, such as
 <span>[<a href="#I-D.ietf-ivy-network-inventory-software" class="cite xref">I-D.ietf-ivy-network-inventory-software</a>]</span>.<a href="#section-3.1-10" class="pilcrow">¶</a></p>
@@ -1824,7 +1824,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.25">is-fru:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.26">
-            <p id="section-3.4-3.26.1">Indicates whether or not a component is considered a "field-replaceable unit" by the vendor.<a href="#section-3.4-3.26.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.26.1">Indicates whether or not a component is considered a field-replaceable unit by the vendor.<a href="#section-3.4-3.26.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.4-3.27">uri:</dt>
@@ -1854,7 +1854,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.37">parent-rel-pos:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.38">
-            <p id="section-3.4-3.38.1">When this component is contained in the network-element or in only one parent component and has sibling components, this attribute represents the relative position of this component with respect to the parent component among all the sibling components.<a href="#section-3.4-3.38.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.38.1">When this component is contained in the network element or in only one parent component and has sibling components, this attribute represents the relative position of this component with respect to the parent component among all the sibling components.<a href="#section-3.4-3.38.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.4-3.39">is-main:</dt>
@@ -1863,7 +1863,7 @@ document and could be defined in application- and technology-specific companion 
 </dd>
         <dd class="break"></dd>
 </dl>
-<p id="section-3.4-4">For state data like "admin-state", "oper-state", and so on, this document considers that they are related to device hardware management, not network inventory. Therefore, they are outside of the scope of this document. Same for the sensor-data, they might be defined in some other performance monitoring data models instead of the inventory data model.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">For state data like "admin-state", "oper-state", and so on, this document considers that they are related to device hardware management, not network inventory. Therefore, they are outside of the scope of this document. Same for the "sensor-data", they might be defined in some other performance monitoring data models instead of the inventory data model.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
 <div id="hardware-components">
 <section id="section-3.4.1">
           <h4 id="name-hardware-components">
@@ -2014,7 +2014,7 @@ scope of the network inventory model.<a href="#section-3.4.2-9" class="pilcrow">
 <p id="section-3.5.2-2">In order to support these use cases, the base inventory data model is not aligned with <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> in defining the component name as the key for the component list.<a href="#section-3.5.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.5.2-3">Instead, the component "name" is defined as an optional attribute and the "component-id"
 attribute is defined as the key for the component list (in alignment with the approach
-followed for the network-element list).<a href="#section-3.5.2-3" class="pilcrow">¶</a></p>
+followed for the "network-element" list).<a href="#section-3.5.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="association-with-the-parent-component">
@@ -2029,7 +2029,7 @@ this model defines the "parent-rel-pos" data node as a string instead of as an i
 <p id="section-3.5.3-3">If the device reports the relative position as an integer, e.g., using the device model defined in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, the integer value reported by the device can be mapped into a string within the network inventory.<a href="#section-3.5.3-3" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-4">Furthermore, to support cases where a component is physically contained within multiple
 parent components (e.g., a board occupying multiple slots), the "parent" data node
-is defined as a leaf-list rather than a single leaf (as in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>).<a href="#section-3.5.3-4" class="pilcrow">¶</a></p>
+is defined as a "leaf-list" rather than a single "leaf" (as in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>).<a href="#section-3.5.3-4" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-5">In such multi-parent cases, each referenced parent is an atomic container
 (such as a slot or sub-slot) that is fully occupied by that component.
 Because the component occupies each parent container entirely, a relative
@@ -2617,7 +2617,7 @@ to any other type of application which needs to discover the network inventory
 information. When combining network inventories from lower-level network
 controllers, the higher-level controller acts as
 the server for its northbound interface and is responsible for ensuring that
-the "ne-id" values remain unique within the combined network-element list it
+the "ne-id" values remain unique within the combined "network-element" list it
 exposes.<a href="#section-5-9" class="pilcrow">¶</a></p>
 <p id="section-5-10">The inventory needs to be updated every time components are added or removed from the network. Protocol-specific mechanisms can be used to notify the client about these changes.<a href="#section-5-10" class="pilcrow">¶</a></p>
 <p id="section-5-11">Since this YANG data model reports what is actually installed in the network, if a component (e.g., a board) is physically removed from the network, also its descendant components (e.g., daughter boards and ports) are also physically removed from the network and, as a consequence, from the inventory data being reported through this YANG data model.<a href="#section-5-11" class="pilcrow">¶</a></p>
@@ -3053,7 +3053,7 @@ module: ietf-network-inventory
             <td class="text-left" rowspan="1" colspan="1">parent</td>
             <td class="text-left" rowspan="1" colspan="1">parent</td>
             <td class="text-left" rowspan="1" colspan="1"> </td>
-            <td class="text-left" rowspan="1" colspan="1">In OpenConfig, the parent is a leaf and not a leaf-list</td>
+            <td class="text-left" rowspan="1" colspan="1">In OpenConfig, the "parent" data node is a "leaf" and not a "leaf-list"</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">redundant-role</td>
@@ -3130,7 +3130,7 @@ module: ietf-network-inventory
           <tr>
             <td class="text-left" rowspan="1" colspan="1">subcomponents</td>
             <td class="text-left" rowspan="1" colspan="1"> </td>
-            <td class="text-left" rowspan="1" colspan="1">Duplicated information with respect to the parent attribute, to support reverse navigation from parent to children components</td>
+            <td class="text-left" rowspan="1" colspan="1">Duplicated information with respect to the "parent" data node, to support reverse navigation from parent to children components</td>
             <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
         </tbody>
