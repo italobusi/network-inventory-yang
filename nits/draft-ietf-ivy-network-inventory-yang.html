@@ -1324,7 +1324,7 @@ that can be augmented with technology- or application-specific inventory details
 <p id="section-1-1">This document defines a base YANG data model for reporting network inventory
 that is application- and technology-agnostic.  The
 base data model can be augmented to describe application- and technology-specific information.
-Note that the usage of term "network inventory", in the context of this document, is to indicate that it is
+Note that the usage of the term "network inventory", in the context of this document, is to indicate that it is
 describing "network-wide" scope inventory information.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Network inventory is a foundation for network management in all types
 of networks. Network operators need to keep a record of what equipment
@@ -1679,7 +1679,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.2-2.5">alias:</dt>
           <dd style="margin-left: 1.5em" id="section-3.2-2.6">
-            <p id="section-3.2-2.6.1">A human-interpretable label of the inventory object, provided by a network operator. It could also be present in a GUI instead as well as the name.<a href="#section-3.2-2.6.1" class="pilcrow">¶</a></p>
+            <p id="section-3.2-2.6.1">A human-interpretable label of the inventory object, provided by a network operator. It could also be present in a GUI instead of or in addition to the name.<a href="#section-3.2-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.2-2.7">description:</dt>
@@ -1829,7 +1829,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.27">uri:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.28">
-            <p id="section-3.4-3.28.1">A list of Uniform Resource Identifiers (URIs) which provides additional identification information about the component.<a href="#section-3.4-3.28.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.28.1">A list of Uniform Resource Identifiers (URIs) which provide additional identification information about the component.<a href="#section-3.4-3.28.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.4-3.29">parent:</dt>
@@ -1849,7 +1849,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.35"></dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.36">
-            <p id="section-3.4-3.36.1">Boards which occupy multiple slots have multiple parent components (one for each occupied slot);<a href="#section-3.4-3.36.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.36.1">Boards which occupy multiple slots have multiple parent components (one for each occupied slot).<a href="#section-3.4-3.36.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.4-3.37">parent-rel-pos:</dt>
@@ -1859,7 +1859,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.39">is-main:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.40">
-            <p id="section-3.4-3.40.1">When the network element contains chassis components which can take or not the 'main' role (e.g., in case of multi-chassis network elements), this attributes indicates whether the chassis is taking or not the 'main' role. See for example <a href="#multi-chassis-examples" class="auto internal xref">Appendix E</a>.<a href="#section-3.4-3.40.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.40.1">When the network element contains chassis components which can take or not the 'main' role (e.g., in case of multi-chassis network elements), this attribute indicates whether the chassis is taking or not the 'main' role. See for example <a href="#multi-chassis-examples" class="auto internal xref">Appendix E</a>.<a href="#section-3.4-3.40.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1973,9 +1973,9 @@ storage, port, or power supply are defined in the hardware extension.<a href="#s
 <p id="section-3.4.2-2">The scope of the list is to provide information about the software images that are running within the related entity.<a href="#section-3.4.2-2" class="pilcrow">¶</a></p>
 <p id="section-3.4.2-3">The term "software image" in this document refers to a software binary image which can be run on a system with lifecycle state (e.g., running, inactive/standby).<a href="#section-3.4.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.4.2-4">The term "running" in this document refers to the software images that the controller has discovered as running in the network element or component as explained in <a href="#operational" class="auto internal xref">Section 5</a>. How a controller discovers and keeps synchronized running software information as well as how it manages transient state (e.g., reboot or loss of connectivity with the network element) are outside the scope of this document.<a href="#section-3.4.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-5">The data model supports scenarios where multiple software images can be images running within the entity.
+<p id="section-3.4.2-5">The data model supports scenarios where multiple software images can be running within the entity.
 For example, one Operating System and one or more application software images can be running in a network element, and, in the same way, one bootloader, one firmware and one or more Field-Programmable Gate Array (FPGA) software images can be running on a component like a circuit pack.<a href="#section-3.4.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-6">For each software image running on the entity, the name and version information is provided.<a href="#section-3.4.2-6" class="pilcrow">¶</a></p>
+<p id="section-3.4.2-6">For each software image running on the entity, the name and version information are provided.<a href="#section-3.4.2-6" class="pilcrow">¶</a></p>
 <p id="section-3.4.2-7">The representation of inactive or standby software modules within the
 network inventory is outside the scope of this document and it can be
 addressed by augmenting the base inventory model, such as the
@@ -2622,7 +2622,7 @@ exposes.<a href="#section-5-9" class="pilcrow">¶</a></p>
 <p id="section-5-10">The inventory needs to be updated every time components are added or removed from the network. Protocol-specific mechanisms can be used to notify the client about these changes.<a href="#section-5-10" class="pilcrow">¶</a></p>
 <p id="section-5-11">Since this YANG data model reports what is actually installed in the network, if a component (e.g., a board) is physically removed from the network, also its descendant components (e.g., daughter boards and ports) are also physically removed from the network and, as a consequence, from the inventory data being reported through this YANG data model.<a href="#section-5-11" class="pilcrow">¶</a></p>
 <p id="section-5-12">If the inventory system defined by this document is to be deployed into a network which has a preexisting inventory system, it is worth noting that existing deployments are based on proprietary Inventory OSS and that the migration path is highly dependent on the specific proprietary solution. Therefore, the migration processes are operator dependent: it is expected that the deployment of the standard YANG-based solution on the controllers will take some time and its integration with existing Inventory OSSes will also take longer time. In a longer term, the network controllers could provide inventory information, using this YANG data model, also to next generation OSSes.<a href="#section-5-12" class="pilcrow">¶</a></p>
-<p id="section-5-13">When this model is used, the source of truth for the inventory data in the scope of this model is the network controller providing this data. Some legacy inventory information (e.g., inactive assets, warehouse spares, procurement or commercial metadata) fall outside the scope of the base model.<a href="#section-5-13" class="pilcrow">¶</a></p>
+<p id="section-5-13">When this model is used, the source of truth for the inventory data in the scope of this model is the network controller providing this data. Some legacy inventory information (e.g., inactive assets, warehouse spares, procurement or commercial metadata) falls outside the scope of the base model.<a href="#section-5-13" class="pilcrow">¶</a></p>
 <div id="transport-performance-considerations">
 <section id="section-5.1">
         <h3 id="name-transport-performance-consi">
@@ -2671,7 +2671,7 @@ notification) to these data nodes.<a href="#section-6-4" class="pilcrow">¶</a><
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="section-6-7.1">
-          <p id="section-6-7.1.1">This subtree reports the inventory information for all the network elements and their hardware components deployed within the network as well as of the software images being discovered as running on these network elements and components. Unauthorized access to this subtree can disclose this information. A malicious attacker can use this information to perform targeted attacks to network elements, hardware components or software images with known vulnerabilities.<a href="#section-6-7.1.1" class="pilcrow">¶</a></p>
+          <p id="section-6-7.1.1">This subtree reports the inventory information for all the network elements and their hardware components deployed within the network as well as of the software images being discovered as running on these network elements and components. Unauthorized access to this subtree can disclose this information. A malicious attacker can use this information to perform targeted attacks against network elements, hardware components or software images with known vulnerabilities.<a href="#section-6-7.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
