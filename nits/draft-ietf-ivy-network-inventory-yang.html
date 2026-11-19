@@ -18,9 +18,9 @@ It also provides a generalized, application- and technology-agnostic foundation
 that can be augmented with technology- or application-specific inventory details. 
     " name="description">
 <meta content="xml2rfc 3.35.0" name="generator">
-<meta content="next generation" name="keyword">
-<meta content="unicorn" name="keyword">
-<meta content="sparkling distributed ledger" name="keyword">
+<meta content="YANG" name="keyword">
+<meta content="network inventory" name="keyword">
+<meta content="hardware inventory" name="keyword">
 <meta content="draft-ietf-ivy-network-inventory-yang-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.35.0
@@ -1824,7 +1824,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.25">is-fru:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.26">
-            <p id="section-3.4-3.26.1">Indicates whether or not a component is considered a 'field-replaceable unit' by the vendor.<a href="#section-3.4-3.26.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.26.1">Indicates whether or not a component is considered a "field-replaceable unit" by the vendor.<a href="#section-3.4-3.26.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-3.4-3.27">uri:</dt>
@@ -1859,7 +1859,7 @@ document and could be defined in application- and technology-specific companion 
           <dd class="break"></dd>
 <dt id="section-3.4-3.39">is-main:</dt>
           <dd style="margin-left: 1.5em" id="section-3.4-3.40">
-            <p id="section-3.4-3.40.1">When the network element contains chassis components which can take or not the 'main' role (e.g., in case of multi-chassis network elements), this attribute indicates whether the chassis is taking or not the 'main' role. See for example <a href="#multi-chassis-examples" class="auto internal xref">Appendix E</a>.<a href="#section-3.4-3.40.1" class="pilcrow">¶</a></p>
+            <p id="section-3.4-3.40.1">When the network element contains chassis components which can take or not the "main" role (e.g., in case of multi-chassis network elements), this attribute indicates whether the chassis is taking or not the "main" role. See for example <a href="#multi-chassis-examples" class="auto internal xref">Appendix E</a>.<a href="#section-3.4-3.40.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -2025,15 +2025,15 @@ followed for the network-element list).<a href="#section-3.5.2-3" class="pilcrow
 <p id="section-3.5.3-1">There are some use cases where the parent relative position is not reported as an integer but as a string.<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-2">In order to support these use cases and allow a straightforward match
 between the relative position definition in the device and in the network inventory,
-this model defines the 'parent-rel-pos' data node as a string instead of as an integer.<a href="#section-3.5.3-2" class="pilcrow">¶</a></p>
+this model defines the "parent-rel-pos" data node as a string instead of as an integer.<a href="#section-3.5.3-2" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-3">If the device reports the relative position as an integer, e.g., using the device model defined in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, the integer value reported by the device can be mapped into a string within the network inventory.<a href="#section-3.5.3-3" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-4">Furthermore, to support cases where a component is physically contained within multiple
-parent components (e.g., a board occupying multiple slots), the 'parent' data node
+parent components (e.g., a board occupying multiple slots), the "parent" data node
 is defined as a leaf-list rather than a single leaf (as in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>).<a href="#section-3.5.3-4" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-5">In such multi-parent cases, each referenced parent is an atomic container
 (such as a slot or sub-slot) that is fully occupied by that component.
 Because the component occupies each parent container entirely, a relative
-position within a single parent has no meaning, and the 'parent-rel-pos' data node MUST be omitted.<a href="#section-3.5.3-5" class="pilcrow">¶</a></p>
+position within a single parent has no meaning, and the "parent-rel-pos" data node MUST be omitted.<a href="#section-3.5.3-5" class="pilcrow">¶</a></p>
 <p id="section-3.5.3-6">If a physical slot can be shared by multiple boards, each partition is
 modeled as a separate sub-slot container component.<a href="#section-3.5.3-6" class="pilcrow">¶</a></p>
 </section>
@@ -2617,7 +2617,7 @@ to any other type of application which needs to discover the network inventory
 information. When combining network inventories from lower-level network
 controllers, the higher-level controller acts as
 the server for its northbound interface and is responsible for ensuring that
-the 'ne-id' values remain unique within the combined network-element list it
+the "ne-id" values remain unique within the combined network-element list it
 exposes.<a href="#section-5-9" class="pilcrow">¶</a></p>
 <p id="section-5-10">The inventory needs to be updated every time components are added or removed from the network. Protocol-specific mechanisms can be used to notify the client about these changes.<a href="#section-5-10" class="pilcrow">¶</a></p>
 <p id="section-5-11">Since this YANG data model reports what is actually installed in the network, if a component (e.g., a board) is physically removed from the network, also its descendant components (e.g., daughter boards and ports) are also physically removed from the network and, as a consequence, from the inventory data being reported through this YANG data model.<a href="#section-5-11" class="pilcrow">¶</a></p>
@@ -2680,7 +2680,7 @@ notification) to these data nodes.<a href="#section-6-4" class="pilcrow">¶</a><
 </li>
       </ul>
 <p id="section-6-9">Modules that use the groupings that are defined in this document
-should identify the corresponding security considerations. For example, reusing the 'component-attributes' grouping may expose sensitive information.<a href="#section-6-9" class="pilcrow">¶</a></p>
+should identify the corresponding security considerations. For example, reusing the "component-attributes" grouping may expose sensitive information.<a href="#section-6-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">

@@ -574,8 +574,8 @@ Table of Contents
    asset-id:  An asset tracking identifier for the component, provided
       by a network operator.
 
-   is-fru:  Indicates whether or not a component is considered a 'field-
-      replaceable unit' by the vendor.
+   is-fru:  Indicates whether or not a component is considered a "field-
+      replaceable unit" by the vendor.
 
    uri:  A list of Uniform Resource Identifiers (URIs) which provide
       additional identification information about the component.
@@ -598,9 +598,9 @@ Table of Contents
       sibling components.
 
    is-main:  When the network element contains chassis components which
-      can take or not the 'main' role (e.g., in case of multi-chassis
+      can take or not the "main" role (e.g., in case of multi-chassis
       network elements), this attribute indicates whether the chassis is
-      taking or not the 'main' role.  See for example Appendix E.
+      taking or not the "main" role.  See for example Appendix E.
 
    For state data like "admin-state", "oper-state", and so on, this
    document considers that they are related to device hardware
@@ -753,7 +753,7 @@ Table of Contents
 
    In order to support these use cases and allow a straightforward match
    between the relative position definition in the device and in the
-   network inventory, this model defines the 'parent-rel-pos' data node
+   network inventory, this model defines the "parent-rel-pos" data node
    as a string instead of as an integer.
 
    If the device reports the relative position as an integer, e.g.,
@@ -763,14 +763,14 @@ Table of Contents
 
    Furthermore, to support cases where a component is physically
    contained within multiple parent components (e.g., a board occupying
-   multiple slots), the 'parent' data node is defined as a leaf-list
+   multiple slots), the "parent" data node is defined as a leaf-list
    rather than a single leaf (as in [RFC8348]).
 
    In such multi-parent cases, each referenced parent is an atomic
    container (such as a slot or sub-slot) that is fully occupied by that
    component.  Because the component occupies each parent container
    entirely, a relative position within a single parent has no meaning,
-   and the 'parent-rel-pos' data node MUST be omitted.
+   and the "parent-rel-pos" data node MUST be omitted.
 
    If a physical slot can be shared by multiple boards, each partition
    is modeled as a separate sub-slot container component.
@@ -1376,7 +1376,7 @@ Table of Contents
    information.  When combining network inventories from lower-level
    network controllers, the higher-level controller acts as the server
    for its northbound interface and is responsible for ensuring that the
-   'ne-id' values remain unique within the combined network-element list
+   "ne-id" values remain unique within the combined network-element list
    it exposes.
 
    The inventory needs to be updated every time components are added or
@@ -1464,7 +1464,7 @@ Table of Contents
 
    Modules that use the groupings that are defined in this document
    should identify the corresponding security considerations.  For
-   example, reusing the 'component-attributes' grouping may expose
+   example, reusing the "component-attributes" grouping may expose
    sensitive information.
 
 7.  IANA Considerations
